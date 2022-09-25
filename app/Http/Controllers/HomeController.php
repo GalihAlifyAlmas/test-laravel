@@ -27,33 +27,33 @@ class HomeController extends Controller
 
     public function index_front()
     {
-        
 
-      
+
+
         $products = Products::All();
         return view('layout-frontend.content.produk-content',compact(
             'products'
 
         ));
     }
-     
+
 
     public function index()
     {
-        
 
-        // Untuk mengambil Data Produk dari database 
+
+        // Untuk mengambil Data Produk dari database
         $products = Products::All();
-        // Untuk menghitung Jumlah Produk dari database 
+        // Untuk menghitung Jumlah Produk dari database
         $products_count = $products->count();
 
-        
-        
-        
+
+
+
         return view('layouts.home.home-admin',compact(
-            
+
             'products','products_count'
-            
+
 
         ));
     }
@@ -61,18 +61,18 @@ class HomeController extends Controller
 
     public function indexProduk()
     {
-        
-            
 
-        // Untuk mengambil Data Produk dari database 
+
+
+        // Untuk mengambil Data Produk dari database
         $products = Products::All();
-        // Untuk menghitung Jumlah Produk dari database 
+        // Untuk menghitung Jumlah Produk dari database
         $products_count = $products->count();
 
-        
 
-        
-        
+
+
+
         return view('layouts.content.produk.index',compact(
             'products','products_count'
 
@@ -81,14 +81,14 @@ class HomeController extends Controller
 
 
     public function tambahDataProduk()
-    { 
+    {
         return view('layouts.content.produk.add');
     }
 
 
 
 
-    // PROSES TAMBAH DATA BLOG 
+    // PROSES TAMBAH DATA BLOG
     public function prosestambahproduk(Request $request)
     {
         //  $this->validate($request, [
@@ -103,8 +103,8 @@ class HomeController extends Controller
         $product->deskripsi = $request->get('deskripsi');
         $product->diskon = $request->get('diskon');
         $product->price = $request->get('price');
-        
-        
+
+
         if ($request->hasFile('gambar')) {
             // $post->delete_image();
             $gambar = $request->file('gambar');
@@ -127,7 +127,7 @@ class HomeController extends Controller
         }
     }
 
-    
+
     // PROSES Hapus
     public function hapusDataProduk($id)
     {
@@ -161,11 +161,11 @@ class HomeController extends Controller
         $product->deskripsi = $request->get('deskripsi');
         $product->diskon = $request->get('diskon');
         $product->price = $request->get('price');
-        
+
 
         if ($request->hasFile('gambar')) {
             // $post->delete_image();
-           
+
             if($request->file('gambar') == ""){
                 $gambar = $request->file('gambar_old');
             }else{

@@ -11,7 +11,7 @@
             @include('features.navbar-side')
             <!-- /.navbar-top-links -->
 
-            
+
             <!-- /.navbar-static-side -->
         </nav>
 
@@ -23,20 +23,20 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-            @include('layouts.home.user_count')
+            @include('layouts.content.home.user_count')
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-8">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-table fa-fw"></i> Produk 
+                            <i class="fa fa-table fa-fw"></i> Produk
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
 
                             <!-- BUTTON TAMBAH  -->
                             <a href="{{ url('add/produk') }}" class="btn btn-success mb-4"> Tambah
-                            </a>  
+                            </a>
                             <br>
                             <br>
                             @include('layouts.messages.flash-messages')
@@ -46,23 +46,23 @@
                                             <th>No</th>
                                             <th>Gambar</th>
                                             <th>Judul</th>
-                                          
+
                                             <th>Diskon</th>
                                             <th>Price</th>
                                             <th>Deskripsi</th>
                                             <th>Action</th>
-                                            
+
                                         </tr>
                                     </thead>
                                     <tbody>
-                                      <?php $i=1; ?>    
-                                    @foreach($products as $product) 
-                                   
+                                      <?php $i=1; ?>
+                                    @foreach($products as $product)
+
                                         <tr>
                                             <td>{{ $i }}</td>
-                                            
+
                                             <td><img src="{{ asset('img/'. $product->gambar ) }}" class="img-responsive" style="width: 250px; height: 100px;"></td>
-                                            
+
                                             <td>{{ $product->judul }}</td>
                                              <td>{{ $product->diskon }}</td>
                                              <td>{{ $product->price }}</td>
@@ -72,14 +72,14 @@
                                                 </a>
 
                                                 <a href="{{ url('/produk/hapus/' . $product->id) }}" class="btn btn-danger mb-4"> Hapus
-                                                </a>    
+                                                </a>
                                             </td>
-                                            
+
                                         </tr>
                                     <?php $i++; ?>
                                     @endforeach
                                     </tbody>
-                                    
+
                             </table>
                         </div>
                         <!-- /.panel-body -->
